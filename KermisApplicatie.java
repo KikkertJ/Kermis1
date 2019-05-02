@@ -42,6 +42,7 @@ public class KermisApplicatie {
 			case "4": {
 				doorgaan = true;
 				ladderklimmen.draaien("Laddervallen", 5.00);
+				((Ladderklimmen)ladderklimmen).kansSpelBelastingBetalen();
 				break;
 			}
 			case "5": {

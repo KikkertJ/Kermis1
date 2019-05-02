@@ -17,8 +17,4 @@ public class Hawaii extends RisicoRijkeAttractie {
 
 	}
 
-	
-
-
-
 }
