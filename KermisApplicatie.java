@@ -30,11 +30,13 @@ public class KermisApplicatie {
 			case "2": {
 				doorgaan = true;
 				spin.draaien("Spinning spinnetje", 2.25);
+				((Spin) spin).draaibeurten();
 				break;
 			}
 			case "3": {
 				doorgaan = true;
 				hawaii.draaien("Ananas Hawaii", 2.90);
+				((Hawaii) hawaii).draaibeurten();
 				break;
 			}
 			case "4": {
@@ -54,7 +56,7 @@ public class KermisApplicatie {
 			}
 			case "o": {
 				kassa.Kermisomzet();
-				System.out.println("Omzet per attractie: \n");
+				System.out.println("Omzet per attractie:");
 				botsauto.getOmzet();
 				spin.getOmzet();
 				hawaii.getOmzet();
