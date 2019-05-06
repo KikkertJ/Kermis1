@@ -6,24 +6,29 @@ public abstract class RisicoRijkeAttractie extends Attractie {
 	static boolean limietBereikt;
 	static Scanner monteur = new Scanner(System.in);
 
-	static void draaiLimiet() {
-		if (draaiLimietSpin > 5 ) {
-			limietBereikt = true;
-			System.out.println("Draailimiet" + draaiLimietSpin);
-			System.out.println("Er moet een monteur komen. Druk op 'm' om de monteur te roepen.");
-			monteuroproepen();
-		}
-		if (draaiLimietHawaii > 10 ) {
-			limietBereikt = true;
-			System.out.println("Draailimiet" + draaiLimietHawaii);
-			System.out.println("Er moet een monteur komen. Druk op 'm' om de monteur te roepen.");
-			monteuroproepen();
-		}
+	static void draaiLimiet() throws Exception{
+		if (draaiLimietSpin > 5 || draaiLimietHawaii > 10) 
+			throw new Exception();
+		
+//			limietBereikt = true;
+//			System.out.println("Er moet een monteur komen. Druk op 'm' om de monteur te roepen.");
+//			monteuroproepen();
+//		}
+//		if (draaiLimietHawaii > 10 ) {
+//			limietBereikt = true;
+//			System.out.println("Er moet een monteur komen. Druk op 'm' om de monteur te roepen.");
+//			monteuroproepen();
+//		}
 	}
 
 
 	public static void monteuroproepen() {
 		// TODO Auto-generated method stub
+		try { draaiLimiet();
+		
+		} catch (Exception e){ 
+			limietBereikt = true;
+		}
 		while (limietBereikt) {
 			String onderhoudsm = monteur.next();
 			switch (onderhoudsm) {

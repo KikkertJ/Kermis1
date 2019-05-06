@@ -1,24 +1,15 @@
 
 public class Ladderklimmen extends Attractie implements GokAttractie {
+	static double Belasting;
+	int aftedragen;
+	int rondjesAfgedragen;
 	
-	Kassa kassa = new Kassa();
-	
-	@Override
-	public void getOmzet() { 
-		 System.out.println( naam + ": €" + omzetAttractie);
-	 }
-
-	@Override
-	public void getKaarten() {
-			 System.out.println( naam + ": " + kaartAttractie);
+	public void kansSpelBelastingBetalen() {
+		// TODO Auto-generated method stub
+		aftedragen = kaartAttractie - rondjesAfgedragen;
+		Belasting = aftedragen * 5.0 * kansSpelBelastingPercentage;
+		rondjesAfgedragen = kaartAttractie;
 		
 	}
 
-	@Override
-	public void kansSpelBelastingBetalen() {
-		// TODO Auto-generated method stub
-		kassa.kansSpelBelasting = omzetAttractie * kansSpelBelastingPercentage;
-	System.out.println(kassa.kansSpelBelasting);	
-	}
-	
 }

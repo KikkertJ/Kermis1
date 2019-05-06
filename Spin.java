@@ -1,22 +1,21 @@
 
-public class Spin extends RisicoRijkeAttractie {
+public class Spin extends RisicoRijkeAttractie implements GokAttractie {
 
+	static double Belasting;
+	int aftedragenSpin;
+	int rondjesAfgedragenSpin;
 
 	public void draaibeurten() {
 		draaiLimietSpin++;
-		draaiLimiet();
+		monteuroproepen();
 	}
 
-	@Override
-	public void getOmzet() {
-		System.out.println(naam + ": €" + omzetAttractie);
-	}
 	
-
-	@Override
-	public void getKaarten() {
-		System.out.println(naam + ": " + kaartAttractie);
-
+	public void kansSpelBelastingBetalen() {
+		// TODO Auto-generated method stub
+		aftedragenSpin = kaartAttractie - rondjesAfgedragenSpin;
+		Belasting = aftedragenSpin * 5.0 * kansSpelBelastingPercentage;
+		rondjesAfgedragenSpin = kaartAttractie;
 	}
 }
 

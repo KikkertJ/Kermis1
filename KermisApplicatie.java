@@ -10,6 +10,7 @@ public class KermisApplicatie {
 		Attractie spiegelpaleis = new Spiegelpaleis();
 		Attractie spookhuis = new Spookhuis();
 		Kassa kassa = new Kassa();
+		BelastingInspecteur inspecteur = new BelastingInspecteur();
 		boolean doorgaan;
 		System.out.println(
 				"Welkom bij de kermis! Om een een attractie te laten draaien kun je de de cijfers 1 t/m 6 invoeren.");
@@ -19,43 +20,48 @@ public class KermisApplicatie {
 		// attractienummer invoeren en aanroepen
 
 		while (doorgaan = true) {
-			Scanner invoer = new Scanner(System.in);
-			String starter = invoer.next();
+			String starter;
+			if (inspecteur.Controle()) {
+				starter = "b";
+			}else {
+				Scanner invoer = new Scanner(System.in);
+				starter = invoer.next();
+			}
+			
 			switch (starter) {
-			case "1": {
+			case "1": 
 				doorgaan = true;
 				botsauto.draaien("Botsie botsers", 2.50);
 				break;
-			}
-			case "2": {
+			
+			case "2": 
 				doorgaan = true;
 				spin.draaien("Spinning spinnetje", 2.25);
 				((Spin) spin).draaibeurten();
 				break;
-			}
-			case "3": {
+			
+			case "3": 
 				doorgaan = true;
 				hawaii.draaien("Ananas Hawaii", 2.90);
 				((Hawaii) hawaii).draaibeurten();
 				break;
-			}
-			case "4": {
+			
+			case "4": 
 				doorgaan = true;
 				ladderklimmen.draaien("Laddervallen", 5.00);
-				((Ladderklimmen)ladderklimmen).kansSpelBelastingBetalen();
 				break;
-			}
-			case "5": {
+			
+			case "5": 
 				doorgaan = true;
 				spiegelpaleis.draaien("Spiegeltje aan de wand", 2.75);
 				break;
-			}
-			case "6": {
+			
+			case "6": 
 				doorgaan = true;
 				spookhuis.draaien("Huis van Casper", 3.20);
 				break;
-			}
-			case "o": {
+			
+			case "o": 
 				kassa.Kermisomzet();
 				System.out.println("Omzet per attractie:");
 				botsauto.getOmzet();
@@ -65,8 +71,8 @@ public class KermisApplicatie {
 				spiegelpaleis.getOmzet();
 				spookhuis.getOmzet();
 				break;
-			}
-			case "k": {
+			
+			case "k": 
 				kassa.TotaleKaarten();
 				System.out.println("Aantal kaarten per attractie: \n");
 				botsauto.getKaarten();
@@ -76,12 +82,20 @@ public class KermisApplicatie {
 				spiegelpaleis.getKaarten();
 				spookhuis.getKaarten();
 				break;
-			}
-			default: {
+			case "b":
+				((Spin) spin).kansSpelBelastingBetalen();
+				((Ladderklimmen) ladderklimmen).kansSpelBelastingBetalen();
+				Kassa.BelastingKermis();
+
+
+			case "a":
+				doorgaan = false;
+				break;
+			default: 
 				doorgaan = true;
 				System.out.println("Er wordt geen attractie gestart.");
 				break;
-			}
+			
 			}
 		}
 	}

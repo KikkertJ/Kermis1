@@ -7,12 +7,18 @@ public abstract class Attractie {
 	int kaartAttractie;
 
 	public void draaien(String naam, double prijs) {
-		omzetAttractie = omzetAttractie + prijs;
 		kaartAttractie = kaartAttractie + 1;
-		Kassa.OmzetKermis = Kassa.OmzetKermis + prijs;
 		Kassa.kaartenKermis = Kassa.kaartenKermis + 1;
 		System.out.println("De attractie: " + naam + ", kost: " + prijs + " euro om te draaien.");
+		omzetAttractie = omzetAttractie + prijs;
+		Kassa.OmzetKermis = Kassa.OmzetKermis + prijs;
 	}
-	public abstract void getOmzet();
-	public abstract void getKaarten();
+	public void getOmzet() {
+		System.out.println(naam + ": €" + omzetAttractie);
+	}
+
+	public void getKaarten() {
+		System.out.println(naam + ": " + kaartAttractie);
+
+	};
 }

@@ -1,6 +1,6 @@
 
 public class Botsautos extends Attractie {
-
+	
 	@Override
 	public void getOmzet() {
 		System.out.println(naam + ": €" + omzetAttractie);
